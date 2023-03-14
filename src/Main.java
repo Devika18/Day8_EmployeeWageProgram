@@ -1,43 +1,22 @@
-import java.util.Random;
+public class EmployeeWage {
+    public static int EmpWage() {
+        int isPartTime = 1;
+        int isFullTime = 2;
+        int empRatePerHr = 20;
+        int empHrs;
+        double empCheck = Math.floor(Math.random() * 10 % 3);
+        if (empCheck == isPartTime) {
+            empHrs = 8;
+        } else if (empCheck == isFullTime) {
+            empHrs = 16;
+        } else {
+            empHrs = 0;
+        }
+        return empRatePerHr * empHrs;
+    }
 
-public class Main {
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Program");
-        int wagePerHour = 20;
-        int fullTime = 8;
-        int partTime = 4;
-        int workingDays = 20;
-        int workingHours = 100;
-        int salary;
-        int totalSalary = 0;
-        Random random = new Random();
-        int employeeCheck = random.nextInt(3);
-        for (int hour = 0; hour <= workingHours; hour++) {
-            if (employeeCheck == 2) {
-                System.out.println("Employee is Present for Full Time");
-                salary = wagePerHour * fullTime * workingDays;
-                totalSalary = totalSalary + salary;
-                System.out.println("Monthly salary is: "+totalSalary);
-            }
-            else if (employeeCheck == 1) {
-                System.out.println("Employee is Present for Part Time");
-                salary = wagePerHour * partTime * workingDays;
-                totalSalary = totalSalary + salary;
-                System.out.println("Monthly salary is: "+totalSalary);
-            } else
-                System.out.println("Employee is Absent");
-        }
-        switch (employeeCheck) {
-            case 2:
-                salary = fullTime * wagePerHour;
-                System.out.println("Employee is present full time");
-                break;
-            case 1:
-                salary = partTime * wagePerHour;
-                System.out.println("Employee is present part time");
-                break;
-            default:
-                System.out.println("Employee is absent");
-        }
+        System.out.println("Employee Wage =" + EmployeeWage.EmpWage());
     }
 }
